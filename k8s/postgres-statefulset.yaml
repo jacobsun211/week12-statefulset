@@ -4,9 +4,14 @@ metadata:
   name: postgres
 spec:
   selector:
+    matchLabels:
+      app: post 
   serviceName: "postgres-svc"
   replicas: 3 
   template:
+    metadata:
+      labels:
+        app: post 
     spec:
       containers:
       - name: coord
