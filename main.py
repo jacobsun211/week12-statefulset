@@ -18,7 +18,7 @@ app = FastAPI(lifespan=lifespan)
 
 # Database configuration
 DB_CONFIG = {
-    "host": os.getenv("POSTGRES_HOST", "localhost"),
+    "host": os.getenv("POSTGRES_HOST", "postgres-svc"),
     "port": os.getenv("POSTGRES_PORT", "5432"),
     "database": os.getenv("POSTGRES_DB", "coordinates_db"),
     "user": os.getenv("POSTGRES_USER", "postgres"),

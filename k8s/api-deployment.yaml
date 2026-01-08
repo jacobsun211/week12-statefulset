@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: coordinates-api
@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
       - name: api-pod
-        image: jacobsun211/coordinates_api:v1
+        image: jacobsun211/coordinates-api:v1
         ports:
         - containerPort: 8000
         env:
         - name: POSTGRES_HOST
-          value: "postgres-0.postgres-svc"
+          value: "postgres-0.coordinates-api-svc"
         - name: POSTGRES_PORT
           value: "5432"
         - name: POSTGRES_DB
@@ -33,4 +33,3 @@ spec:
 
 
 
-# env, postgres post = postgres-0.svc name

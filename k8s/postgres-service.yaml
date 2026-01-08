@@ -11,3 +11,5 @@ spec:
   clusterIP: None
   selector:
     app: post
+
+

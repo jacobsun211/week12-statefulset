@@ -1,3 +1,8 @@
+Jacob Shemesh
+325606481
+negev
+
+
 # Coordinates API - Kubernetes Deployment
 
 A FastAPI application that manages geographic coordinates with PostgreSQL backend, deployed using Kubernetes StatefulSet.

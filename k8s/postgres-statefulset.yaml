@@ -14,12 +14,12 @@ spec:
         app: post 
     spec:
       containers:
-      - name: coord
-        image: postgres:15
+      - name: postgres
+        image: postgres:15-alpine
         ports:
         - containerPort: 5432
         volumeMounts:
-        - name: postgres-storage
+        - name: postgres-storage-new
           mountPath: /var/lib/postgresql/data
         env:
         - name: POSTGRES_DB
@@ -28,12 +28,17 @@ spec:
           value: "postgres"
         - name: POSTGRES_PASSWORD
           value: "postgres"
+        - name: PGDATA
+          value: "/var/lib/postgresql/data/pgdata"
+
   volumeClaimTemplates:
   - metadata:
-      name: postgres-storage
+      name: postgres-storage-new
+      labels:
+        app: post
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
       resources:
         requests:
-          storage: 1Gi
+          storage: "1Gi"
+
